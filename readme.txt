@@ -1,5 +1,5 @@
 === Featured Image Widget ===
-Contributors: waltervos
+Author: waltervos
 Tags: featured image, post thumbnail, widget
 Requires at least: 2.9
 Tested up to: 3.0.1
