@@ -3,7 +3,7 @@ Author: waltervos
 Tags: featured image, post thumbnail, widget
 Requires at least: 2.9
 Tested up to: 3.0.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Provides a widget that displays the featured image for a post or page, if a featured image has been set.
 
