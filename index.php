@@ -3,7 +3,7 @@
  * Plugin Name: Featured image widget
  * Plugin URI: http://wordpress.org/extend/plugins/featured-image-widget/
  * Description: This widget shows the featured image for posts and pages. If a featured image hasn't been set, several fallback mechanisms can be used.
- * Version: 0.1
+ * Version: 0.2
  * Author: Walter Vos
  * Author URI: http://www.waltervos.nl/
  */
@@ -15,20 +15,31 @@ class FeaturedImageWidget extends WP_Widget {
 
     function form($instance) {
         $title = esc_attr($instance['title']);
+        $instance['image-size'] = (!$instance['image-size'] || $instance['image-size'] == '') ? 'post-thumbnail' : $instance['image-size'];
         ?>
 <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+<p>
+    <label for="<?php echo $this->get_field_id('image-size'); ?>">Image size to display:</label>
+    <select class="widefat" id="<?php echo $this->get_field_id('image-size'); ?>" name="<?php echo $this->get_field_name('image-size'); ?>">
+                <?php foreach (get_intermediate_image_sizes() as $intermediate_image_size) : ?>
+        <?php
+        $selected = ($instance['image-size'] == $intermediate_image_size) ? ' selected="selected"' : '';
+        ?>
+        <option value="<?php echo $intermediate_image_size; ?>"<?php echo $selected; ?>><?php echo $intermediate_image_size; ?></option>
+                <?php endforeach; ?>
+    </select>
+</p>
         <?php
     }
 
     function update($new_instance, $old_instance) {
-        $instance = $old_instance;
-        $instance['title'] = strip_tags($new_instance['title']);
-        return $instance;
+        $new_instance['title'] = strip_tags($new_instance['title']);
+        return $new_instance;
     }
 
     function widget($args, $instance) {
         extract($args);
-        $size = 'post-thumbnail';
+        $size = $instance['image-size'];
         global $post;
 
         if (has_post_thumbnail($post->ID)) {

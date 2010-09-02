@@ -9,7 +9,9 @@ Provides a widget that displays the featured image for a post or page, if a feat
 
 == Description ==
 
-Use this plugin to display the featured image for any post or page in your sidebar.
+Use this plugin to display the featured image for any post or page in your sidebar. When a featured image hasn't
+explicitly been set you have the option to use an image that was uploaded with the post/page. If that fails the
+plugin can use a random image.
 
 == Installation ==
 
@@ -20,6 +22,9 @@ It's dead simple:
 1. Browse to Appearance->Widgets, add the widget, and configure the options
 
 == Changelog ==
+
+= 0.2 =
+* Choose which image size gets displayed
 
 = 0.1 =
 * First version, no special options
