@@ -48,6 +48,12 @@ class FeaturedImageWidget extends WP_Widget {
             if ( $title ) echo $before_title . $title . $after_title;
             echo get_the_post_thumbnail($post->ID, $size);
             echo $after_widget;
+        } elseif (!has_post_thumbnail($post->ID) || $post->post_parent) {
+            $title = apply_filters('widget_title', $instance['title']);
+            echo $before_widget;
+            if ( $title ) echo $before_title . $title . $after_title;
+            echo get_the_post_thumbnail($post->post_parent, $size);
+            echo $after_widget;
         } else {
             // the current post lacks a thumbnail, we do nothing?
         }
