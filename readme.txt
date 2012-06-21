@@ -3,7 +3,7 @@ Author: waltervos
 Tags: featured image, post thumbnail, widget
 Requires at least: 2.9
 Tested up to: 3.0.1
-Stable tag: 0.2
+Stable tag: 0.3
 
 Provides a widget that displays the featured image for a post or page, if a featured image has been set.
 
@@ -22,6 +22,9 @@ It's dead simple:
 1. Browse to Appearance->Widgets, add the widget, and configure the options
 
 == Changelog ==
+
+= 0.3 =
+* Widget will now automatically grab the featured image of the parent page is no featured image is defined.
 
 = 0.2 =
 * Choose which image size gets displayed
