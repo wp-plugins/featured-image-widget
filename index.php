@@ -3,7 +3,7 @@
  * Plugin Name: Featured image widget
  * Plugin URI: http://wordpress.org/extend/plugins/featured-image-widget/
  * Description: This widget shows the featured image for posts and pages. If a featured image hasn't been set, several fallback mechanisms can be used.
- * Version: 0.2
+ * Version: 0.3
  * Author: Walter Vos
  * Author URI: http://www.waltervos.nl/
  */
